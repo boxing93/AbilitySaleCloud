@@ -5,7 +5,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="Ocelot" Version="13.5.2" />
+      <PackageReference Include="Ocelot" Version="13.9.0-alpha0115" />
+      <PackageReference Include="Ocelot.Cache.CacheManager" Version="13.9.0-alpha0115" />
     </ItemGroup>
 
 </Project>

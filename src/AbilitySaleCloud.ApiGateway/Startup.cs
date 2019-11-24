@@ -10,6 +10,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Ocelot.Cache.CacheManager;
+using Ocelot.DependencyInjection;
+using Ocelot.Middleware;
 
 namespace AbilitySaleCloud.ApiGateway
 {
@@ -26,6 +29,11 @@ namespace AbilitySaleCloud.ApiGateway
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddOcelot()
+                .AddCacheManager(x =>
+                {
+                    x.WithDictionaryHandle();
+                });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -35,14 +43,11 @@ namespace AbilitySaleCloud.ApiGateway
             {
                 app.UseDeveloperExceptionPage();
             }
-
             //app.UseHttpsRedirection();
-
-            app.UseRouting();
-
-            app.UseAuthorization();
-
-            app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
+            //app.UseRouting();
+            // app.UseAuthorization();
+            //app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
+            app.UseOcelot().Wait();
         }
     }
 }

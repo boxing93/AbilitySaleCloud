@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using IdentityServer4.AccessTokenValidation;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -28,7 +29,20 @@ namespace AbilitySaleCloud.ApiGateway
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Latest);
+            services.AddControllers()
+                .AddNewtonsoftJson();
+            var authenticationProviderKey = "TestKey";
+            Action<IdentityServerAuthenticationOptions> opt = o =>
+            {
+                o.Authority = "http://localhost:6000";
+                o.ApiName = "SampleService";
+                o.SupportedTokens = SupportedTokens.Both;
+                o.RequireHttpsMetadata = false;
+            };
+
+            services.AddAuthentication(IdentityServerAuthenticationDefaults.AuthenticationScheme)
+                .AddIdentityServerAuthentication(authenticationProviderKey, opt);
             services.AddOcelot()
                 .AddCacheManager(x =>
                 {
@@ -43,6 +57,11 @@ namespace AbilitySaleCloud.ApiGateway
             {
                 app.UseDeveloperExceptionPage();
             }
+            else
+            {
+                app.UseHsts();
+            }
+            
             //app.UseHttpsRedirection();
             //app.UseRouting();
             // app.UseAuthorization();

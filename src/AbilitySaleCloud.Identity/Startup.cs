@@ -1,3 +1,4 @@
+using System.Net.Http;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -26,6 +27,11 @@ namespace AbilitySaleCloud.Identity
             {
                 configuration.RootPath = "ClientApp/dist";
             });
+            services.AddIdentityServer(x => { x.IssuerUri = "none"; })
+                .AddDeveloperSigningCredential()
+                .AddInMemoryApiResources(ServiceConfig.GetAllApiResources())
+                .AddInMemoryClients(ServiceConfig.GetClients(Configuration));
+            services.AddScoped<HttpClient>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -42,7 +48,7 @@ namespace AbilitySaleCloud.Identity
                 app.UseHsts();
             }
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
             app.UseStaticFiles();
             if (!env.IsDevelopment())
             {
@@ -57,6 +63,8 @@ namespace AbilitySaleCloud.Identity
                     name: "default",
                     pattern: "{controller}/{action=Index}/{id?}");
             });
+            app.UseIdentityServer();
+
 
             app.UseSpa(spa =>
             {

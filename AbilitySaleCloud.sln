@@ -11,6 +11,26 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AbilitySaleCloud.ApiGateway
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AbilitySaleCloud.IdentityService", "src\AbilitySaleCloud.IdentityService\AbilitySaleCloud.IdentityService.csproj", "{30B96E92-A147-47C3-8D85-CF6710548AB6}"
 EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Client", "src\Client\", "{CAEF8C2A-B4AF-4134-BF4A-49437413C37F}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_60308"
+		Debug.AspNetCompiler.PhysicalPath = "src\Client\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_60308\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_60308"
+		Release.AspNetCompiler.PhysicalPath = "src\Client\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_60308\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "60308"
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +65,18 @@ Global
 		{30B96E92-A147-47C3-8D85-CF6710548AB6}.Release|x64.Build.0 = Release|Any CPU
 		{30B96E92-A147-47C3-8D85-CF6710548AB6}.Release|x86.ActiveCfg = Release|Any CPU
 		{30B96E92-A147-47C3-8D85-CF6710548AB6}.Release|x86.Build.0 = Release|Any CPU
+		{CAEF8C2A-B4AF-4134-BF4A-49437413C37F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CAEF8C2A-B4AF-4134-BF4A-49437413C37F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CAEF8C2A-B4AF-4134-BF4A-49437413C37F}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{CAEF8C2A-B4AF-4134-BF4A-49437413C37F}.Debug|x64.Build.0 = Debug|Any CPU
+		{CAEF8C2A-B4AF-4134-BF4A-49437413C37F}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{CAEF8C2A-B4AF-4134-BF4A-49437413C37F}.Debug|x86.Build.0 = Debug|Any CPU
+		{CAEF8C2A-B4AF-4134-BF4A-49437413C37F}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{CAEF8C2A-B4AF-4134-BF4A-49437413C37F}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{CAEF8C2A-B4AF-4134-BF4A-49437413C37F}.Release|x64.ActiveCfg = Debug|Any CPU
+		{CAEF8C2A-B4AF-4134-BF4A-49437413C37F}.Release|x64.Build.0 = Debug|Any CPU
+		{CAEF8C2A-B4AF-4134-BF4A-49437413C37F}.Release|x86.ActiveCfg = Debug|Any CPU
+		{CAEF8C2A-B4AF-4134-BF4A-49437413C37F}.Release|x86.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -52,6 +84,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{D2C568A2-4CEA-489C-A8E1-F9B616EA83F1} = {13DC98B6-6FE3-4358-8A68-B751B722E375}
 		{30B96E92-A147-47C3-8D85-CF6710548AB6} = {13DC98B6-6FE3-4358-8A68-B751B722E375}
+		{CAEF8C2A-B4AF-4134-BF4A-49437413C37F} = {13DC98B6-6FE3-4358-8A68-B751B722E375}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {724288EA-296D-4AC3-B9E3-4A4BD46C39F1}

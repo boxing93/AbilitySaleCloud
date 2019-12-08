@@ -12,6 +12,6 @@ namespace AbilitySaleCloud.Articles.Models.DatabaseContext
         {
             
         }
-        DbSet<Articles>
+        DBSet<ArticleContext.Articles> articles = new DBSet<ArticleContext.Articles>();
     }
 }

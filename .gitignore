@@ -275,3 +275,10 @@ __pycache__/
 *.licenseheader
 Thumbs.db
 tempkey.rsa
+/src/AbilitySaleCloud.Articles/Properties
+/node_modules
+/src/AbilitySaleCloud.Articles/AbilitySaleCloud.Articles.csproj
+/src/AbilitySaleCloud.Articles/appsettings.Development.cs
+/src/AbilitySaleCloud.Articles/appsettings.json
+/src/AbilitySaleCloud.Articles/Program.cs
+/src/AbilitySaleCloud.Articles/Startup.cs

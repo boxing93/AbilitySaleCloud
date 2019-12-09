@@ -15,7 +15,7 @@ namespace AbilitySaleCloud.Identity.Controllers
             _logger = logger;
         }
         
-        [HttpGet]
+        [HttpGet("get")]
         public async Task<IActionResult> GetLoggedUsers()
         {
             return Ok("10 users are logged in");

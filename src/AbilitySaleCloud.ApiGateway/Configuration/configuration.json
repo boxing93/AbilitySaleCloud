@@ -1,7 +1,7 @@
 {
   "ReRoutes": [
     {
-      "DownstreamPathTemplate": "/api/token/{everything}",
+      "DownstreamPathTemplate": "/api/login/{everything}",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -9,7 +9,7 @@
           "Port": 44309
         }
       ],
-      "UpstreamPathTemplate": "/api/token/{everything}",
+      "UpstreamPathTemplate": "/api/login/{everything}",
       "UpstreamHttpMethod": [
         "GET",
         "POST",

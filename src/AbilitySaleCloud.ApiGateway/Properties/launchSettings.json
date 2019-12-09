@@ -20,11 +20,11 @@
       "AbilitySaleCloud.ApiGateway": {
         "commandName": "Project",
         "launchBrowser": true,
+        "applicationUrl": "https://localhost:5001;https://localhost:5000",
         "launchUrl": "api",
         "environmentVariables": {
           "ASPNETCORE_ENVIRONMENT": "Development"
-        },
-        "applicationUrl": "https://localhost:5001;https://localhost:5000"
+        }
       }
   }
 }

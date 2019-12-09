@@ -12,6 +12,8 @@
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
+#node modules
+node_modules
 
 #node
 node_modules
@@ -278,3 +280,10 @@ __pycache__/
 *.licenseheader
 Thumbs.db
 tempkey.rsa
+/src/AbilitySaleCloud.Articles/Properties
+/node_modules
+/src/AbilitySaleCloud.Articles/AbilitySaleCloud.Articles.csproj
+/src/AbilitySaleCloud.Articles/appsettings.Development.cs
+/src/AbilitySaleCloud.Articles/appsettings.json
+/src/AbilitySaleCloud.Articles/Program.cs
+/src/AbilitySaleCloud.Articles/Startup.cs

@@ -29,9 +29,7 @@ namespace AbilitySaleCloud.ApiGateway
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Latest);
-            services.AddControllers()
-                .AddNewtonsoftJson();
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
             var authenticationProviderKey = "TestKey";
             Action<IdentityServerAuthenticationOptions> opt = o =>
             {
@@ -62,7 +60,8 @@ namespace AbilitySaleCloud.ApiGateway
                 app.UseHsts();
             }
             
-            //app.UseHttpsRedirection();
+            app.UseHttpsRedirection();
+            //app.UseMvc();
             //app.UseRouting();
             // app.UseAuthorization();
             //app.UseEndpoints(endpoints => { endpoints.MapControllers(); });

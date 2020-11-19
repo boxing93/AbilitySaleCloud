@@ -1,11 +1,12 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using AbilitySaleCloud.Articles.Models.DatabaseContext.Base;
 using Microsoft.EntityFrameworkCore;
 
 namespace AbilitySaleCloud.Articles.Models.DatabaseContext
 {
-    public class ArticleGroups
+    public class ArticleGroups : DeletableEntity
     {
         [Key]
         public int GroupID { get; set; }
@@ -15,13 +16,6 @@ namespace AbilitySaleCloud.Articles.Models.DatabaseContext
 
         [Required]
         public bool Locked { get; set; } // can it be used; 0 - Not locked = Default
-        
-        [Required]
-        public int UserID { get; set; } //user who created the group
-
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
-        [DataType(DataType.Date), Required]
-        public DateTime CreateDT { get; set; }
 
         [Required]
         public bool Alert { get; set; } //do the user needs an alert for min or max quantity from this group; Default = 0
@@ -31,12 +25,6 @@ namespace AbilitySaleCloud.Articles.Models.DatabaseContext
 
         [Column(TypeName = "decimal(9, 2)")]
         public decimal MinOrdrQty { get; set; }
-
-        public int UpdateUser { get; set; } //user who created the group
-
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
-        [DataType(DataType.Date)]
-        public DateTime UpdateDT { get; set; }
 
         [ForeignKey("UoMGroups")]
         public int DfltUoM { get; set; }

@@ -1,23 +1,22 @@
-﻿using System;
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using AbilitySaleCloud.Articles.Models.DatabaseContext.Base;
 using Microsoft.EntityFrameworkCore;
 
 namespace AbilitySaleCloud.Articles.Models.DatabaseContext
 {
-    public class ArticlesPackages
+    public class UoMGroup : DeletableEntity
     {
-        [Key, DatabaseGenerated(DatabaseGeneratedOption.Computed)]
-        public int Entry { get; set; }
+        [Key, StringLength(50)]
+        public string UoMID { get; set; }
 
-        [ForeignKey("Articles")]
-        public int ArticleID { get; set; }
+        [Required, StringLength(150)]
+        public string UoMDescription { get; set; }
 
-        [Required, StringLength(1)]
-        public string UoMType { get; set; } //P - Purchase; S - Sales; I - Inventory; Default = S
+        [Required]
+        public bool Locked { get; set; } //can it be used; 0 - Not locked = Default
 
-        [Required, ForeignKey("UoMGroups")]
-        public int UoMGroupID { get; set; }
 
         [Column(TypeName = "decimal(9, 2)")]
         public decimal Height { get; set; }
@@ -69,7 +68,7 @@ namespace AbilitySaleCloud.Articles.Models.DatabaseContext
 
         public int WeightUoM2 { get; set; }
 
-        [Required, Column(TypeName = "decimal(9, 2)")]
-        public decimal QtyPerPack { get; set; }
+		[StringLength(20)]
+		public string IntrntSmbl { get; set; } //International symbol
     }
 }

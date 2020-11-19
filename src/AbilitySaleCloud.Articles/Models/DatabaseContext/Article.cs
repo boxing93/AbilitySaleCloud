@@ -5,10 +5,11 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
+using AbilitySaleCloud.Articles.Models.DatabaseContext.Base;
 
 namespace AbilitySaleCloud.Articles.Models.DatabaseContext
 {
-    public class Articles
+    public class Article : DeletableEntity
     {
         [Key]
         public int ArticleID { get; set; }
@@ -40,9 +41,6 @@ namespace AbilitySaleCloud.Articles.Models.DatabaseContext
 
         public double OpenBlnc { get; set; } //Обща наличност на артикул по всички складове
 
-        [Required]
-        public int LstUserID { get; set; } //Последния модифицирал потребител. Да се попълва от backend-a
-
         [StringLength(200)]
         [DataType(DataType.ImageUrl)]
         public string Picture { get; set; }
@@ -51,10 +49,6 @@ namespace AbilitySaleCloud.Articles.Models.DatabaseContext
         public string UserRemarks { get; set; }
 
         public int ManufID { get; set; }
-
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
-        [DataType(DataType.Date)]
-        public DateTime UpdateDate { get; set; }
 
         public double AvgPrice { get; set; }
 

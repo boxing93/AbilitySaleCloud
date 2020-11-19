@@ -1,11 +1,12 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using AbilitySaleCloud.Articles.Models.DatabaseContext.Base;
 using Microsoft.EntityFrameworkCore;
 
 namespace AbilitySaleCloud.Articles.Models.DatabaseContext
 {
-    public class TaxGroups
+    public class TaxGroup : DeletableEntity
     {
         [Key, StringLength(6)]
         public string TaxCode { get; set; }
@@ -26,14 +27,6 @@ namespace AbilitySaleCloud.Articles.Models.DatabaseContext
         [Required]
         public bool Locked { get; set; }//Default = 0 - no; 1 - yes;
 
-        [Required]
-        public int UserID { get; set; } //created by
-
-        [Required]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
-        [DataType(DataType.Date)]
-        public DateTime CreateDT { get; set; }
-
         public bool AcqstnRvrs { get; set; } // Acquisition/Reverse
 
         [Column(TypeName = "decimal(9, 2)")]
@@ -44,11 +37,5 @@ namespace AbilitySaleCloud.Articles.Models.DatabaseContext
 
         [Required]
         public bool TaxType { get; set; } //1=Stamp, 0=VAT; Default = 0
-
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
-        [DataType(DataType.Date)]
-        public DateTime UpdateDT { get; set; }
-
-        public int UpdateUser { get; set; }
     }
 }

@@ -1,11 +1,12 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using AbilitySaleCloud.Articles.Models.DatabaseContext.Base;
 using Microsoft.EntityFrameworkCore;
 
 namespace AbilitySaleCloud.Articles.Models.DatabaseContext
 {
-    public class ArticlesActivity
+    public class ArticleActivity : Entity
     {
         [Key, ForeignKey("Articles")]
         public int ArticleID { get; set; }

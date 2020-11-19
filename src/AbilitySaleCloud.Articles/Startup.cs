@@ -1,35 +1,27 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using AbilitySaleCloud.Articles.Models.DatabaseContext;
+using AbilitySaleCloud.Articles.Models.Infrastructure.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 
 namespace AbilitySaleCloud.Articles
 {
     public class Startup
     {
         public Startup(IConfiguration configuration)
-        {
-            Configuration = configuration;
-        }
+            => Configuration = configuration;
+        
 
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
-            services.AddDbContext<ArticleContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ArticleDatabase")));
-
+            services
+                .AddDatabase(this.Configuration)
+                .AddApplicationServices()
+                .AddApiControllers();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -40,16 +32,15 @@ namespace AbilitySaleCloud.Articles
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseHttpsRedirection();
-
-            app.UseRouting();
-
-            app.UseAuthorization();
-
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
-            });
+            app
+                .UseHttpsRedirection()
+                .UseRouting()
+                .UseAuthorization()
+                .UseEndpoints(endpoints =>
+                {
+                    endpoints.MapControllers();
+                })
+                .ApplyMigrations();
         }
     }
 }

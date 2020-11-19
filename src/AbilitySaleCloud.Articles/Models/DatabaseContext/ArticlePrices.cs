@@ -1,11 +1,12 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using AbilitySaleCloud.Articles.Models.DatabaseContext.Base;
 using Microsoft.EntityFrameworkCore;
 
 namespace AbilitySaleCloud.Articles.Models.DatabaseContext
 {
-    public class ArticlesPrices
+    public class ArticlePrices : Entity
     { 
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         public int Entry { get; set; }
